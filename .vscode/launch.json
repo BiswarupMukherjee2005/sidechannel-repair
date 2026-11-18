@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run pipeline (mock LLM)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pipeline.run",
+      "args": ["designs/flawed_and.v", "--top", "flawed_and", "--llm", "mock"]
+    }
+  ]
+}

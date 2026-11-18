@@ -1,0 +1,8 @@
+{
+  "title": "Masked AND that unmasks its inputs",
+  "status": "PLACEHOLDER - check this fix with Stage 2 before trusting it",
+  "buggy_code": "// Sample flawed design: a masked AND gate that recombines shares\n// before the output, so the secret value appears on a single wire.\nmodule flawed_and(\n    input  clk,\n    input  a0, a1,   // shares of secret a\n    input  b0, b1,   // shares of secret b\n    input  r,        // fresh random bit\n    output reg y0, y1\n);\n    wire a = a0 ^ a1;   // BUG: unmasks a\n    wire b = b0 ^ b1;   // BUG: unmasks b\n    wire y = a & b;\n    always @(posedge clk) begin\n        y0 <= y ^ r;\n        y1 <= r;\n    end\nendmodule\n",
+  "fixed_code": "module flawed_and(\n    input  clk, a0, a1, b0, b1, r,\n    output y0, y1\n);\n    reg t00, t01, t10, t11;\n    always @(posedge clk) begin\n        t00 <= a0 & b0;\n        t01 <= (a0 & b1) ^ r;\n        t10 <= (a1 & b0) ^ r;\n        t11 <= a1 & b1;\n    end\n    assign y0 = t00 ^ t01;\n    assign y1 = t11 ^ t10;\nendmodule\n",
+  "explanation": "The flawed version XORs the shares back together, so the secret appears on one wire. The fix never combines both shares of one input; cross terms are remasked with a fresh random bit and registered.",
+  "source": "written by the team"
+}

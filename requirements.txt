@@ -1,0 +1,6 @@
+python-dotenv
+pytest<9
+# LLM SDKs: install the ones you use
+#google-genai    # --llm gemini
+openai          # --llm openai and --llm grok
+#anthropic       # --llm claude
