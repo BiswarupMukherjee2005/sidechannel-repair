@@ -13,12 +13,12 @@ Verilog design -> [1 Detect] -> Leakage Report -> [2 Verify] -> Verdict
 
 ## Who owns what
 
-| Stage       | Folder           | Owner                  | Output                               |
-| ----------- | ---------------- | ---------------------- | ------------------------------------ |
-| 1 Detect    | `stage1_detect/` | Duo 1: Aashish, Naitik | Leakage Report (JSON)                |
-| 2 Verify    | `stage2_verify/` | Duo 2: Dev, Pragya     | Verdict (pass/fail + counterexample) |
-| 3 Repair    | `stage3_repair/` | Duo 3: Biswa, Aanchal  | Candidate fixed design               |
-| 4 Re-verify | `pipeline/`      | Duo 3                  | Loop result                          |
+| Stage       | Folder           | Owner                     | Output                               |
+| ----------- | ---------------- | ------------------------- | ------------------------------------ |
+| 1 Detect    | `stage1_detect/` | Duo 1: Aashish, Naitik    | Leakage Report (JSON)                |
+| 2 Verify    | `stage2_verify/` | Duo 2: Dev, Pragya        | Verdict (pass/fail + counterexample) |
+| 3 Repair    | `stage3_repair/` | Duo 3: Biswarup, Aanchal  | Candidate fixed design               |
+| 4 Re-verify | `pipeline/`      | Duo 3                     | Loop result                          |
 
 ## Folder structure
 
