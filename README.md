@@ -12,14 +12,16 @@ Verilog design -> [1 Detect] -> Leakage Report -> [2 Verify] -> Verdict
 ```
 
 ## Who owns what
-| Stage | Folder | Owner | Output |
-|---|---|---|---|
-| 1 Detect | `stage1_detect/` | Duo 1: Aashish, Naitik | Leakage Report (JSON) |
-| 2 Verify | `stage2_verify/` | Duo 2: Dev, Pragya | Verdict (pass/fail + counterexample) |
-| 3 Repair | `stage3_repair/` | Duo 3: Biswa, Aanchal | Candidate fixed design |
-| 4 Re-verify | `pipeline/` | Duo 3 | Loop result |
+
+| Stage       | Folder           | Owner                  | Output                               |
+| ----------- | ---------------- | ---------------------- | ------------------------------------ |
+| 1 Detect    | `stage1_detect/` | Duo 1: Aashish, Naitik | Leakage Report (JSON)                |
+| 2 Verify    | `stage2_verify/` | Duo 2: Dev, Pragya     | Verdict (pass/fail + counterexample) |
+| 3 Repair    | `stage3_repair/` | Duo 3: Biswa, Aanchal  | Candidate fixed design               |
+| 4 Re-verify | `pipeline/`      | Duo 3                  | Loop result                          |
 
 ## Folder structure
+
 ```
 sidechannel-repair/
   README.md
@@ -40,7 +42,9 @@ sidechannel-repair/
 ```
 
 ## Setup
+
 Requires Python 3.10 or newer. Icarus Verilog (`iverilog`) is optional now and needed by Stage 1.
+
 ```
 python -m venv .venv
 .venv\Scripts\activate          # Windows;  macOS/Linux: source .venv/bin/activate
@@ -49,14 +53,17 @@ copy .env.example .env          # macOS/Linux: cp .env.example .env   then add y
 ```
 
 ## Run
+
 ```
 python -m pipeline.run designs/flawed_and.v --top flawed_and --llm mock
-python -m pipeline.run designs/flawed_and.v --top flawed_and --llm grok     # or gemini, openai, claude
+python -m pipeline.run designs/flawed_and.v --top flawed_and --llm groq     # or gemini, openai, claude
 python -m pytest tests -q
 ```
+
 Stages 1 and 2 are stand-ins that return fake results until Duo 1 and Duo 2 replace them, so `--llm mock` runs the whole loop offline.
 
 ## Team rules
+
 - One branch per stage: `stage1-detect`, `stage2-verify`, `stage3-4-repair`. Merge to `main` by pull request.
 - Do not change formats in `docs/interfaces.md` without telling everyone.
 - Each stage folder has its own README: how to run it and what it outputs.
@@ -64,4 +71,5 @@ Stages 1 and 2 are stand-ins that return fake results until Duo 1 and Duo 2 repl
 - Only Stage 1 + Stage 2 decide if a design is secure. The LLM's own claim is never trusted.
 
 ## Setting up the repo
+
 See `docs/GITHUB_SETUP.md`.
