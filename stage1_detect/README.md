@@ -1,4 +1,4 @@
-# Stage 1: Detect (Duo 1)
+# Stage 1: Detect (Duo 1) - Aashish & Naitik 
 
 Side-channel vulnerability detection for masked hardware circuits using RTL simulation, power leakage models, and Test Vector Leakage Assessment (TVLA).
 
