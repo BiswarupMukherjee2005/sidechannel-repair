@@ -11,19 +11,6 @@ Side-channel vulnerability detection for masked hardware circuits using RTL simu
 
 
 
-
-| `inputs.py` | Handles test inputs: generates Fixed vs. Random TVLA test vectors (or loads user-provided input files). |
-| `simulation.py` | Wraps the Verilog design in an auto-generated testbench, executes `iverilog`/`vvp`, and captures cycle-by-cycle signal values (VCD / signal log). |
-| `leakage_model.py` | Computes Hamming Weight (HW) and Hamming Distance (HD) for signals across cycles. |
-| `traces.py` | Generates synthetic power consumption traces by combining HW/HD with realistic Gaussian noise. |
-| `tvla.py` | Performs Welch's t-test between Fixed and Random groups, flagging cycles exceeding threshold $ |
-| `detect.py` | The main entry point `run(verilog_path, top_module, ...)` returning the team's official JSON format, plus CLI support. |
-| `README.md` | Clear documentation on installation, inputs, CLI usage, and output format for your team lead. |
-| `tests/test_stage1.py` | Unit and integration tests verifying `flawed_and.v` leaks and secure designs pass. |
----
-
-
-
 # Detailed explanation of what each file is doing 
 
 ![alt text](images/image-2.png)
