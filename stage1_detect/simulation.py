@@ -161,7 +161,7 @@ def run_simulation(
             top_module=top_module,
             ports_info=ports_info,
             test_inputs=test_inputs,
-            log_filename=str(log_file),
+            log_filename="sim_signals.log",
         )
         tb_file.write_text(tb_code, encoding="utf-8")
 
