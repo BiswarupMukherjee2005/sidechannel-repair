@@ -1,0 +1,42 @@
+{
+  "design": "designs/flawed_and.v",
+  "top_module": "flawed_and",
+  "leakage_model": "hamming_weight",
+  "num_traces": 1000,
+  "leaky": true,
+  "findings": [
+    {
+      "signal": "a",
+      "cycles": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "t_statistic": 14.16,
+      "threshold": 4.5
+    },
+    {
+      "signal": "b",
+      "cycles": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "t_statistic": 12.54,
+      "threshold": 4.5
+    },
+    {
+      "signal": "y",
+      "cycles": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "t_statistic": 7.56,
+      "threshold": 4.5
+    }
+  ]
+}
